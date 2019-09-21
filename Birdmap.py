@@ -50,7 +50,7 @@ states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
 fg = folium.FeatureGroup(name='Info')
 for lat, lon, name in zip(lats, longs, names):
     html = f"""
-    <img src="test.png">
+    <img src="WY.png">
     """
     fg.add_child(folium.CircleMarker(location=[lat, lon], popup=html, radius=4, fill=True, color='black'))
 m.add_child(fg)
