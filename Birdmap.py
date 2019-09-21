@@ -1,8 +1,10 @@
 #Note to reader: I'm sorry
-
+import os
 import pandas
 import folium
 import numpy as np
+import json
+import requests
 
 #html for the popups
 html = """
@@ -23,10 +25,18 @@ successation: %s meters<br>
 
 </style>"""
 
-data = pandas.read_csv("bluebirds.csv") #Opens the csv and sets it to the data variable
+url = 'https://raw.githubusercontent.com/python-visualization/folium/master/examples/data'
+us_states = f'{url}/us-states.json'
+
+geo_json_data = json.loads(requests.get(us_states).text)
+
+data = pandas.read_csv("finalbbs2019.csv") #Opens the csv and sets it to the data variable
 
 state = list(data["Location"])
 success = list(data["Nesting Success Rate"]) #Sets each variable to a list of all the points in a given column
+
+datadict = {"State":state,
+            "Percent":success}
 
 def colorsuccess(success): #For later, returns a color based on the value of the successation
     if success <20:
@@ -44,6 +54,13 @@ def colorsuccess(success): #For later, returns a color based on the value of the
 
 BirdMap = folium.Map(location=[39.38, -118.63], zoom_start = 4) #Creates the basemap
 BirdMap.save("index.html") #Saves the map as an html file
+
+BirdMap.choropleth(
+ geo_data=geo_json_data,
+ name='choropleth'
+)
+folium.LayerControl().add_to(BirdMap)
+
 
 '''
 fgVolc = folium.FeatureGroup(name="Volcanoes") #Creates a feature group for the volcanoes
