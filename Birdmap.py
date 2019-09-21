@@ -1,5 +1,6 @@
 import pandas as pd
 import folium
+import glob
 
 statelatlongs = pd.read_csv("statelatlong.csv")
 
@@ -38,15 +39,24 @@ lats = statelatlongs["Latitude"]
 longs = statelatlongs["Longitude"]
 names = statelatlongs["State"]
 
-# fg = folium.FeatureGroup(name='Info')
-# for lat, lon, name in zip(lats, longs, names):
-#     html = f"""
-#     <h2>{name}<\h2><br>
-#     <img src=''>
-#     """
-#     fg.add_child(folium.CircleMarker(location=[lat, lon], popup=html, radius=4, fill=True, color='black'))
-# m.add_child(fg)
+
+states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", 
+          "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", 
+          "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", 
+          "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", 
+          "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
+
+
+fg = folium.FeatureGroup(name='Info')
+for lat, lon, name in zip(lats, longs, names):
+    html = f"""
+    <img src="test.png">
+    """
+    fg.add_child(folium.CircleMarker(location=[lat, lon], popup=html, radius=4, fill=True, color='black'))
+m.add_child(fg)
+
 
 folium.LayerControl().add_to(m)
+
 
 m.save("index.html") #Saves the map as an html file
