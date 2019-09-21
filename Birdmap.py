@@ -34,7 +34,7 @@ folium.Choropleth(
     fill_color='YlGnBu',
     fill_opacity=0.7,
     line_opacity=0.2,
-    legend_name='Success Rate (%)'
+    legend_name='Nesting Success Rate (%)'
 ).add_to(m)
 
 lats = statelatlongs["Latitude"]
