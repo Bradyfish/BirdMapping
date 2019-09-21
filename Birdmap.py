@@ -57,7 +57,8 @@ BirdMap.save("index.html") #Saves the map as an html file
 
 BirdMap.choropleth(
  geo_data=geo_json_data,
- name='choropleth'
+ name='choropleth',
+ fill_color='red'
 )
 folium.LayerControl().add_to(BirdMap)
 
