@@ -21,3 +21,5 @@ folium.Choropleth(
 ).add_to(m)
 
 folium.LayerControl().add_to(m)
+
+m.save("index.html") #Saves the map as an html file
