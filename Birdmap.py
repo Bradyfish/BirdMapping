@@ -4,6 +4,8 @@ import glob
 
 statelatlongs = pd.read_csv("statelatlong.csv")
 
+bluebirdstates = pd.read_csv("bluebirdstates.csv")
+
 url = 'https://raw.githubusercontent.com/python-visualization/folium/master/examples/data'
 state_geo = f'{url}/us-states.json'
 state_data = pd.read_csv("easternbluebirds.csv")
@@ -40,23 +42,17 @@ longs = statelatlongs["Longitude"]
 names = statelatlongs["State"]
 
 
-states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", 
-          "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", 
-          "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", 
-          "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", 
-          "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
 
 
 fg = folium.FeatureGroup(name='Info')
-for lat, lon, name in zip(lats, longs, names):
+for lat, lon, name, state in zip(lats, longs, names, bluebirdstates["States"]):
     html = f"""
-    <img src="WY.png">
+    <img src="{state}.png">
     """
     fg.add_child(folium.CircleMarker(location=[lat, lon], popup=html, radius=4, fill=True, color='black'))
 m.add_child(fg)
 
 
 folium.LayerControl().add_to(m)
-
 
 m.save("index.html") #Saves the map as an html file
