@@ -1,6 +1,6 @@
 # Volcano-Map
 
-Here's the GitHub Pages link: https://bradyfish.github.io/Volcano-Map/
+Here's the GitHub Pages link: https://bradyfish.github.io/BirdMapping/
 
 This is a map of all the volcanoes from the database here: http://volcano.oregonstate.edu/volcano_table
 
