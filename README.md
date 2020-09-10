@@ -1,6 +1,6 @@
 # Eastern-Bluebird-Map
 
-Here's the GitHub Pages link: https://bradyfish.github.io/BirdMapping/
+Here's the GitHub Pages link: https://bradynichols.github.io/BirdMapping/
 
 Shows nest success for all native states for tree swallows and eastern bluebirds.
 
