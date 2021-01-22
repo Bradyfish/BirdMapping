@@ -1,5 +1,7 @@
 # Eastern-Bluebird-Map
 
+Team Members: Jake Dreher, Logan Potts, Charlie Roth
+
 Here's the GitHub Pages link: https://bradynichols.github.io/BirdMapping/
 
 Shows nest success for all native states for tree swallows and eastern bluebirds.
